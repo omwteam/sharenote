@@ -1,0 +1,29 @@
+.button-xlarge {
+    font-size: 125%;
+    margin-top: 15px;
+}
+.register-form {
+    width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+}
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    height: 400px;
+    margin-left: -210px;
+    margin-top: -200px;
+
+}
+.check-span {
+    display: none;
+}
+.error .check-span {
+    display: inline-block;
+    color: #b94a48;
+    border-color: #e9322d;
+    padding: 5px 0;
+}
