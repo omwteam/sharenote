@@ -1,4 +1,4 @@
-# tisp
+# TISP(Team informatization sharing platform)
 
 ## 使用
 
