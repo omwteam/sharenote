@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Folder;
 use Illuminate\Http\Request;
@@ -20,7 +19,7 @@ class FolderController extends BaseController
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return $this->error($validator->errors(),'参数验证输错');
+            return $this->error('参数验证输错',$validator->errors());
         }
         $params = $request->input();
         if (!isset($params['p_id'])) {
@@ -33,7 +32,7 @@ class FolderController extends BaseController
         }
         $params['u_id'] = user()->id;
         $data = Folder::create($params);
-        return $this->success('新增成功',array('id'=>$data->id));
+        return $this->success('新增成功',$data);
     }
 
     /**
@@ -42,8 +41,8 @@ class FolderController extends BaseController
     public function listAll()
     {
         //
-        $categories = Folder::where(array('p_id'=>0,'active'=>1))->select('id','title','p_id')->get();
-        $allCategories = Folder::where([['p_id','>',0],['active','=',1]])->select('id','title','p_id','u_id')->get();
+        $categories = Folder::where(array('p_id'=>0,'active'=>'1'))->select('id','title','p_id')->get();
+        $allCategories = Folder::where([['p_id','>',0],['active','=','1']])->select('id','title','p_id','u_id')->get();
         return $this->success('请求成功',compact('categories','allCategories'));
     }
 
@@ -68,7 +67,7 @@ class FolderController extends BaseController
         }
         Folder::where('id',$params['id'])->update(array('title'=>$params['title']));
 
-        return $this->success('修改成功');
+        return $this->success('修改成功',Folder::find($params['id']));
     }
 
 
