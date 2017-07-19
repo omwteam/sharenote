@@ -19,7 +19,7 @@ class CreateFolderTable extends Migration
             $table->string('title',80);
             $table->integer('u_id');
             $table->integer('p_id');
-            $table->enum('active',[0,1])->default(1);
+            $table->enum('active',[0,1])->default('1');
             $table->timestamps();
         });
     }

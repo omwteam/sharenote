@@ -10,10 +10,16 @@
 
         <!-- Styles -->
         <style>
+            @font-face {
+                font-family: 'msyh';
+                font-style: normal;
+                font-weight: normal;
+                src: url(/font/microblack.ttf) format('truetype');
+            }
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                font-family: 'msyh','Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -79,10 +85,11 @@
                 <div class="title m-b-md">
                     <span>欢迎使用醍醐共享云笔记</span>
                 </div>
-                <form action="/test/export" method="post" id="form">
-                    <input type="text" name="content" id="content">
-                    <button type="submit"  id="test">导出</button>
-                </form>
+                {{--<form action="/common/upload" method="post" id="form" enctype="multipart/form-data">--}}
+                    {{--<input type="text" name="content" id="content" value="{{$list->content}}" style="display: none;">--}}
+                    {{--<input type="file" name="picture">--}}
+                    {{--<button type="submit"  id="test">上传</button>--}}
+                {{--</form>--}}
 
                 <div class="links">
                     {{--<a href="https://laravel.com/docs">Documentation</a>--}}
@@ -95,12 +102,13 @@
         </div>
         <script src="{{asset('/libs/jquery/jquery.min.js')}}"></script>
     <script>
+
         $('#test').on('click',function (e) {
             e.preventDefault();
 //            $('#form')[0]['content'].value = $(document).html();
 //            console.log($('html').html());
 //            return;
-            $('#content').val($('body').html());
+            $('#content').val();
             $('#form').submit();
         })
 

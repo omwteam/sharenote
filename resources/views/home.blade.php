@@ -8,10 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <h2>欢迎使用</h2>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
@@ -19,7 +19,7 @@ class BaseController extends Controller
      * @param int $code
      * @return \Illuminate\Http\JsonResponse
      */
-    public function success($msg = '请求成功',$data = null,$code = 200)
+    public function ajaxSuccess($msg = '请求成功',$data = null,$code = 200)
     {
         $this->response['code'] = $code;
         $this->response['msg'] = $msg;
@@ -34,7 +34,7 @@ class BaseController extends Controller
      * @param int $code
      * @return \Illuminate\Http\JsonResponse
      */
-    public function error($msg = '请求成功',$data = null,$code = 403)
+    public function ajaxError($msg = '请求失败',$data = null,$code = 403)
     {
         $this->response['code'] = $code;
         $this->response['msg'] = $msg;
@@ -52,4 +52,6 @@ class BaseController extends Controller
         $this->response['code'] = $code;
         return $this;
     }
+
+
 }

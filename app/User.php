@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * 获取关联到用户的创建的笔记
+     */
+    public function notes()
+    {
+        return $this->hasOne('App\Notes','u_id');
+    }
 }
